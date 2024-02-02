@@ -1,5 +1,6 @@
 {
-   "type": "object",
+  "title": "Generated schema for Root",
+  "type": "object",
   "properties": {
     "id": {
       "type": "string"
@@ -11,7 +12,7 @@
       "type": "object",
       "properties": {
         "year": {
-          "type": "integer"
+          "type": "number"
         },
         "price": {
           "type": "number"

@@ -5,7 +5,7 @@ import static io.restassured.RestAssured.given;
 public class DeleteRequestTest extends TypicodeBaseTest {
     @Test
     public void deleteTest() {
-        given().pathParam("id", 1)
+        given().pathParam("id", 6)
                 .when()
                 .delete("/posts/{id}")
                 .then()

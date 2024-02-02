@@ -15,7 +15,7 @@ public class MatchersArraysTest extends UniversitiesBaseTest {
                 .then().assertThat()
                 .statusCode(200)
                 .contentType(ContentType.JSON)
-                //.log().all()
+                .log().all()
                 .body("[0].web_pages", hasItem("https://www.mbro.ac.uk/"))
                 .body("[0].domains", hasItems("middlesbro.ac.uk", "mbro.ac.uk"))
                 .body("[0].domains", hasSize(2));

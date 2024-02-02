@@ -15,7 +15,7 @@ public class MatchersBasicTest extends ReqresBaseTest {
                 .then().assertThat()
                 .statusCode(200)
                 .contentType(ContentType.JSON)
-                //.log().all()
+                .log().all()
                 .body("data.id", equalTo(1))
                 .body("support.text", containsString("server costs"))
                 .body("data.id", greaterThan(0))

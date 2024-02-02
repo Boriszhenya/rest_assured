@@ -27,7 +27,7 @@ public class PlainPostRequestsTest extends ReqresBaseTest {
                 .log().all()
                 .when()
                 .post("api/register")
-                .then().assertThat()
+                .then()  .log().all().assertThat()
                 .statusCode(200)
                 .and().body("id", equalTo(4))
                 .body("token", containsString("QpwL5tke4Pnpja7X4"));

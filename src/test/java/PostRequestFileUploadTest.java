@@ -16,9 +16,9 @@ public class PostRequestFileUploadTest {
         byte[] bytes = is.readAllBytes();
 
         given()
-                //.multiPart("file", fileToUpload) // "file" это имя поля в форме для файла
+                .multiPart("file", fileToUpload) // "file" это имя поля в форме для файла
                 //.multiPart("file", is) // Отправка как InputStream
-                .multiPart("file", bytes) // Отправка как byteArray
+                //.multiPart("file", bytes) // Отправка как byteArray
                 .log().all()
                 .when()
                 .post("/post")

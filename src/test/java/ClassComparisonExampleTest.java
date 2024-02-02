@@ -11,9 +11,11 @@ public class ClassComparisonExampleTest extends TypicodeBaseTest {
         String postId = "1";
         Post actualResponse = given()
                 .pathParam("id", postId)
-                .when()
+                .when().log().all()
                 .get("/posts/{id}")
-                .then().assertThat()
+                .then()
+                .log().all()
+                .assertThat()
                 .statusCode(200)
                 .contentType(ContentType.JSON)
                 .extract().as(Post.class);
