@@ -153,6 +153,44 @@ public class HomeWorkTest extends BaseTest {
 
     // 6. Для вызова PATCH PARTIALLY UPDATE OBJECT проверьте
     // обновление любого поля любого понравившегося вам объекта
+    @Test
+    public void patchObjectTest() {
+        Phone phone = new Phone();
+        phone.setData(new DataPhone(158.45, "black"));
+        phone.setName("Motorola");
+
+        String newName = "Samsung";
+        String partialPayload = String.format("{\"name\": \"%s\"}",newName);
+
+        Phone oldPhone = given()
+                .contentType(ContentType.JSON)
+                .body(phone)
+                .log().all()
+                .when()
+                .post("objects")
+                .then()
+                .assertThat()
+                .statusCode(200)
+                .log().all()
+                .contentType(ContentType.JSON)
+                .extract().as(Phone.class);
+
+        given()
+                .pathParam("id", oldPhone.getId())
+                .body(partialPayload)
+                .contentType(ContentType.JSON)
+                .log().all()
+                .when()
+                .patch("objects/{id}")
+                .then()
+                .assertThat()
+                .statusCode(200)
+                .log().all()
+                .contentType(ContentType.JSON)
+                .body("name",equalTo(newName));
+
+    }
+
 
 
     // 7. Для вызова DELETE DELETE OBJECT проверьте статус ответа,

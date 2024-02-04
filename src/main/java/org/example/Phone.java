@@ -7,7 +7,8 @@ public class Phone {
 
     private String id;
     private String name;
-    public String createdAt;
+    private String createdAt;
+    private String updatedAt;
     DataPhone data;
 
 
@@ -19,6 +20,10 @@ public class Phone {
 
     public DataPhone getData() {
         return data;
+    }
+
+    public String getUpdatedAt() {
+        return updatedAt;
     }
 
     public String getId() {
@@ -44,6 +49,10 @@ public class Phone {
 
     public void setData(DataPhone data) {
         this.data = data;
+    }
+
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
     @Override
