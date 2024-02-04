@@ -7,7 +7,7 @@ import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInC
 public class SchemeValidationTest extends TypicodeBaseTest {
     @Test
     public void postSchemeValidationTest() {
-        String postId = "1";
+        String postId = "6";
         given()
                 .pathParam("id", postId)
                 .when()

@@ -1,5 +1,5 @@
 {
-  "title": "Generated schema for Root",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "id": {
@@ -11,25 +11,19 @@
     "data": {
       "type": "object",
       "properties": {
-        "year": {
-          "type": "number"
-        },
-        "price": {
-          "type": "number"
-        },
-        "CPU model": {
+        "Generation": {
           "type": "string"
         },
-        "Hard disk size": {
+        "Price": {
+          "type": "string"
+        },
+        "Capacity": {
+          "type": "string"
+        },
+        "Color": {
           "type": "string"
         }
-      },
-      "required": [
-        "year",
-        "price",
-        "CPU model",
-        "Hard disk size"
-      ]
+      }
     }
   },
   "required": [
