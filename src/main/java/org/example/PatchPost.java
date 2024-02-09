@@ -10,4 +10,11 @@ public class PatchPost {
     public void setTitle(String title) {
         this.title = title;
     }
+
+    public PatchPost() {
+    }
+
+    public PatchPost(String title) {
+        this.title = title;
+    }
 }

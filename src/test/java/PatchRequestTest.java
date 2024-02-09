@@ -63,8 +63,7 @@ public class PatchRequestTest extends TypicodeBaseTest {
         String postId = "1";
         String newTitle = "New title";
 
-        PatchPost patchPost = new PatchPost();
-        patchPost.setTitle(newTitle);
+        PatchPost patchPost = new PatchPost(newTitle);
 
         given()
                 .pathParam("id", postId)
