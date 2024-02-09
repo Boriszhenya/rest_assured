@@ -1,5 +1,6 @@
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
+import org.example.PatchPost;
 import org.example.Post;
 import org.junit.jupiter.api.Test;
 
@@ -39,8 +40,9 @@ public class PatchRequestTest extends TypicodeBaseTest {
         String newTitle = "New title";
 
         //String partialPayload = String.format("{ \"title\": \"%s\" }", newTitle);
-        String partialPayload =
-                new JsonPath(String.format("{ \"title\": \"%s\" }", newTitle)).prettyPrint();
+        String partialPayload = "{ \"title\": \"" + newTitle + "\" }";
+        //String partialPayload =
+        //        new JsonPath(String.format("{ \"title\": \"%s\" }", newTitle)).prettyPrint();
 
         given()
                 .pathParam("id", postId)
@@ -53,6 +55,27 @@ public class PatchRequestTest extends TypicodeBaseTest {
                 .statusCode(200)
                 .contentType(ContentType.JSON)
                 .log().all()
+                .body("title", equalTo(newTitle));
+    }
+
+    @Test
+    public void patchProperRequestMinorClassTest() { // А делать придётся к сожалению так
+        String postId = "1";
+        String newTitle = "New title";
+
+        PatchPost patchPost = new PatchPost();
+        patchPost.setTitle(newTitle);
+
+        given()
+                .pathParam("id", postId)
+                .body(patchPost)
+                .contentType(ContentType.JSON)
+                .when()
+                .patch("/posts/{id}")
+                .then()
+                .statusCode(200)
+                .contentType(ContentType.JSON)
+                .assertThat()
                 .body("title", equalTo(newTitle));
     }
 }
