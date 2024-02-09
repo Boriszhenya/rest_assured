@@ -45,4 +45,14 @@ public class Post {
                 getTitle().equals(post.getTitle()) &&
                 getBody().equals(post.getBody());
     }
+
+    @Override
+    public String toString() {
+        return "Post {" +
+                "id = " + id + "'," +
+                "userId = " + userId + "'," +
+                "title = '" + title + "'," +
+                "body = '" + body + '\'' +
+                '}';
+    }
 }
